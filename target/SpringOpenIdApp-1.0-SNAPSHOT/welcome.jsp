@@ -4,7 +4,7 @@ Login Page:
 
 
 
-<form name='loginForm' action="social/facebook/signin" method='GET'>
+<form name='loginForm' action="social/facebook/getFreindsList" method='GET'>
 
 
 		  <table>

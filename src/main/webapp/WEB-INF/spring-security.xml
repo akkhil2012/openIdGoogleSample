@@ -82,9 +82,45 @@
 
                 class="com.openid.service.impl.CustomUserDetailsService"/>
 
-    <beans:bean id="facebook"
+   <!-- <beans:bean id="facebook"
 
-                class="org.springframework.social.facebook.api.impl.FacebookTemplate"/>
+                class="org.springframework.social.facebook.api.impl.FacebookTemplate"/>-->
+
+
+
+    <!-- Spring Social OAuth -->
+
+    <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
+        <property name="connectionFactories">
+            <list>
+                <beans:bean class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+                    <constructor-arg value="667686176613908" />
+                    <constructor-arg value="667686176613908|XbiKIkrfjjZkRjh8G2Nvd4Z3K8k" />
+                </beans:bean>
+            </list>
+        </property>
+    </beans:bean>
+
+<!--
+
+    <bean class="org.springframework.social.facebook.connect.FacebookServiceProvider">
+        <constructor-arg value="${facebook.appId}" />
+        <constructor-arg value="${facebook.appSecret}" />
+        <constructor-arg ref="connectionRepository" />
+    </bean>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
