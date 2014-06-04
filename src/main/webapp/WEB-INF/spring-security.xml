@@ -82,6 +82,10 @@
 
                 class="com.openid.service.impl.CustomUserDetailsService"/>
 
+    <beans:bean id="facebook"
+
+                class="org.springframework.social.facebook.api.impl.FacebookTemplate"/>
+
 
 
     <!--  Till here-->
