@@ -26,6 +26,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
 
+    GrantedAuthority grantedAuthority = new GrantedAuthorityImpl("ROLE_USER");
+
+
+
+
 
 
     Logger log = Logger.getLogger("CustomUserDetailsService.class");
@@ -34,7 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
 
 
-        authorities.add(new GrantedAuthorityImpl("ROLE_USER"));
+        authorities.add(grantedAuthority);
 
         try {
 
@@ -45,7 +50,8 @@ public class CustomUserDetailsService implements UserDetailsService {
              */
 
 
-            User user =  new User(username, "", false,
+
+            User user =  new User("akkhil2012", "Kapil_00@a", false,
                     false, false,
                     false,authorities);
 

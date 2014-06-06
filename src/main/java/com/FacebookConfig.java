@@ -1,4 +1,4 @@
-/*
+
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.social.UserIdSource;
 import org.springframework.social.config.annotation.ConnectionFactoryConfigurer;
-import org.springframework.social.config.annotation.SocialConfigurer;
+//import org.springframework.social.config.annotation.SocialConfigurer;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionRepository;
@@ -19,13 +19,12 @@ import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.social.connect.ConnectionRepository;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.util.logging.Logger;
-*/
-/*import org.springframework.social.config.annotation
-import org.springframework.social.facebook
-*//*
-*/
+
+
+
 /***
  * Created by akhilg on 6/4/2014.
  *//*
@@ -34,21 +33,33 @@ import org.springframework.social.facebook
 
 
 */
-/*@EnableFacebook(appId="667686176613908", appSecret="667686176613908|XbiKIkrfjjZkRjh8G2Nvd4Z3K8k")
-@EnableInMemoryConnectionRepository*//*
 
-@Configuration
-@EnableSocial
+/*@Configuration
+//@EnableSocial
 public  class FacebookConfig {
 
-    @Autowired
-    private ConnectionRepository connectionRepository;
+
+    private static Logger logger = Logger.getLogger("FacebookConfig.class");
+
+   // @Bean
+    public ConnectionFactoryLocator connectionFactoryLocator() {
+        ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
+
+        registry.addConnectionFactory(new FacebookConnectionFactory(
+                environment.getProperty("667686176613908"),
+                environment.getProperty("667686176613908|XbiKIkrfjjZkRjh8G2Nvd4Z3K8k")));
+
+        logger.info("Inside FacebookConfig................"+registry.registeredProviderIds());
 
 
-    private static Logger logger = Logger.getLogger("FacebookConfig");
+        return registry;
+    }
 
-   */
-/* public void addConnectionFactories(ConnectionFactoryConfigurer cfConfig, Environment env) {
+    @Inject
+    private Environment environment;
+
+}*/
+   /*
 
         logger.info("Inside connection to faceBook..................................");
 *//*
