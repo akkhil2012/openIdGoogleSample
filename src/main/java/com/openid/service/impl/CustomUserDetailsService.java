@@ -1,9 +1,12 @@
 package com.openid.service.impl;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -29,6 +32,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     GrantedAuthority grantedAuthority = new GrantedAuthorityImpl("ROLE_USER");
 
 
+
+   // UserDetails userDetails= loadUserByUsername("name");
 
 
 
@@ -56,6 +61,10 @@ public class CustomUserDetailsService implements UserDetailsService {
                     false,authorities);
 
             log.info("User is ---------------->>>"+user);
+
+
+            Authentication authentication= new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()) ;
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
 
             return user;

@@ -1,12 +1,15 @@
 package com.controller;
 
+import com.openid.service.impl.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
 import org.springframework.social.connect.Connection;
@@ -126,7 +129,20 @@ public class FacebookController /*extends ConnectController*/{
 
     @Bean
     public ConnectionRepository connectionRepository() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        CustomUserDetailsService customUserDetailsService = new CustomUserDetailsService();
+
+        Authentication authentication = null;
+
+
+        UserDetails userDetails= customUserDetailsService.loadUserByUsername("name");
+         authentication= new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()) ;
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        logger.info("After setting the authentication Object....."+SecurityContextHolder.getContext().getAuthentication());
+
+
+         authentication = SecurityContextHolder.getContext().getAuthentication();
         logger.info("Inside ComnnectionRepository................................................................................");
        /* if (authentication == null)
             throw new IllegalStateException("Unable to get a ConnectionRepository: no user signed in");*/
