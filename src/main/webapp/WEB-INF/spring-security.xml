@@ -87,7 +87,7 @@
 
     <!-- Spring Social OAuth -->
 
-   <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
+<!--   <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
         <property name="connectionFactories">
             <list>
                 <beans:bean class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
@@ -96,12 +96,12 @@
                 </beans:bean>
             </list>
         </property>
-    </beans:bean>
+    </beans:bean>-->
 
 
     <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/Users"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
 

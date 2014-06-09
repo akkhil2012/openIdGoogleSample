@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringOpenIdApp.iml" filepath="$PROJECT_DIR$/SpringOpenIdApp.iml" />
+      <module fileurl="file://E:/git-repo/openid-spring/spring-openid/SpringOpenIdApp/SpringOpenIdApp (1).iml" filepath="E:/git-repo/openid-spring/spring-openid/SpringOpenIdApp/SpringOpenIdApp (1).iml" />
     </modules>
   </component>
 </project>
